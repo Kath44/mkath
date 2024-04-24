@@ -7,6 +7,8 @@
 package Registration;
 
 import Config.dbConnector;
+import Config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -73,9 +75,9 @@ public class registerDashboard extends javax.swing.JFrame {
         type = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        pass = new javax.swing.JTextField();
         ln = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+        ps = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,22 +182,6 @@ public class registerDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 91, 30));
 
-        pass.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
-        pass.setForeground(new java.awt.Color(153, 153, 153));
-        pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        pass.setText("PASSWORD");
-        pass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passMouseClicked(evt);
-            }
-        });
-        pass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passActionPerformed(evt);
-            }
-        });
-        jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 250, 29));
-
         ln.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
         ln.setForeground(new java.awt.Color(153, 153, 153));
         ln.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -214,7 +200,22 @@ public class registerDashboard extends javax.swing.JFrame {
 
         jTextField2.setBackground(new java.awt.Color(204, 204, 255));
         jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 153, 153)));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 130, -1));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 130, -1));
+
+        ps.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
+        ps.setForeground(new java.awt.Color(204, 204, 204));
+        ps.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ps.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                psMouseClicked(evt);
+            }
+        });
+        ps.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 250, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -277,19 +278,23 @@ public class registerDashboard extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
    
         if(fn.getText().isEmpty()|| ln.getText().isEmpty()|| user.getText().isEmpty()|| em.getText().isEmpty()
-                || pass.getText().isEmpty()|| contact.getText().isEmpty()){
+                || ps.getText().isEmpty()|| contact.getText().isEmpty()){
           JOptionPane.showMessageDialog(null, "All fields are required!");  
-        }else if(pass.getText().length()<8){
+        }else if(ps.getText().length()<8){
           JOptionPane.showMessageDialog(null, " Password character should be 8 above!");
-          pass.setText("");
+          ps.setText("");
         }else if(duplicateCheck()){
         System.out.println("Duplicate Exist");
      }else{
              dbConnector dbc = new dbConnector();
+             
+             try{
+             String pass = passwordHasher.hashPassword(ps.getText());
+             
     
-    if(dbc.insertData("INSERT INTO insur (name, lastname, user, email, pass, contact, type, status) " 
+        if(dbc.insertData("INSERT INTO insur (name, lastname, user, email, pass, contact, type, status) " 
                   + "VALUES ('" + fn.getText() + "','" + ln.getText() + "','" + user.getText() + "','" 
-                  + em.getText() + "','" + pass.getText() + "','" + contact.getText() + "','" 
+                  + em.getText() + "','" + pass + "','" + contact.getText() + "','" 
                   + type.getSelectedItem() + "','Pending')"))
     {
                 JOptionPane.showMessageDialog(null, "Inserted Successfully!");
@@ -300,19 +305,12 @@ public class registerDashboard extends javax.swing.JFrame {
                  this.dispose();
      }else{
      JOptionPane.showMessageDialog(null, "Connection Error!");
-}
-      
-        }
-            
+     }
+             }catch(NoSuchAlgorithmException ex){
+            System.out.println(""+ex);
+     }
+    }         
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void passMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passMouseClicked
-         pass.setText("");        
-    }//GEN-LAST:event_passMouseClicked
-
-    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passActionPerformed
 
     private void lnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lnMouseClicked
          ln.setText("");        
@@ -321,6 +319,14 @@ public class registerDashboard extends javax.swing.JFrame {
     private void lnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lnActionPerformed
+
+    private void psActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_psActionPerformed
+
+    private void psMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_psMouseClicked
+       ps.setText("");
+    }//GEN-LAST:event_psMouseClicked
 
     /**
      * @param args the command line arguments
@@ -368,7 +374,7 @@ public class registerDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField ln;
-    private javax.swing.JTextField pass;
+    private javax.swing.JPasswordField ps;
     private javax.swing.JComboBox<String> type;
     private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
