@@ -163,7 +163,7 @@ public class registerDashboard extends javax.swing.JFrame {
                 typeActionPerformed(evt);
             }
         });
-        jPanel1.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 100, 33));
+        jPanel1.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 100, 30));
 
         jButton2.setText("EXIT");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +179,7 @@ public class registerDashboard extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 91, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 91, 30));
 
         ln.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
         ln.setForeground(new java.awt.Color(153, 153, 153));

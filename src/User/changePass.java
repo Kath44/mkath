@@ -78,8 +78,10 @@ public class changePass extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-users-100.png"))); // NOI18N
 
         alastname.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        alastname.setForeground(new java.awt.Color(255, 255, 255));
         alastname.setText("USERS");
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 255));
         jButton1.setText("Back");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -93,6 +95,7 @@ public class changePass extends javax.swing.JFrame {
         });
 
         aname.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        aname.setForeground(new java.awt.Color(255, 255, 255));
         aname.setText("USERS");
 
         add.setBackground(new java.awt.Color(153, 153, 255));
@@ -139,20 +142,20 @@ public class changePass extends javax.swing.JFrame {
         add.setLayout(addLayout);
         addLayout.setHorizontalGroup(
             addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(jLabel4)
-                .addContainerGap(88, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 106, Short.MAX_VALUE)
                 .addComponent(p_add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(85, 85, 85))
         );
         addLayout.setVerticalGroup(
             addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(4, 4, 4)
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(p_add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -176,17 +179,14 @@ public class changePass extends javax.swing.JFrame {
         edit.setLayout(editLayout);
         editLayout.setHorizontalGroup(
             editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editLayout.createSequentialGroup()
+                .addContainerGap(86, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(82, 82, 82))
         );
         editLayout.setVerticalGroup(
             editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(44, 44, 44))
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -223,17 +223,18 @@ public class changePass extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(alastname)
                 .addGap(62, 62, 62)
-                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84)
                 .addComponent(jButton1)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 640));
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 420));
 
         iddisplay.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        iddisplay.setForeground(new java.awt.Color(255, 255, 255));
         iddisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iddisplay.setText("UID");
         jPanel3.add(iddisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 170, 30));
@@ -287,8 +288,9 @@ public class changePass extends javax.swing.JFrame {
         jPanel3.add(conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 250, 29));
 
         jLabel7.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("CHANGE PASSWORD");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 320, 30));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 260, 30));
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 255));
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -298,27 +300,29 @@ public class changePass extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Save");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel3)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addContainerGap())
+                .addGap(18, 18, 18))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 80, 40));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 60, 30));
 
+        jButton2.setBackground(new java.awt.Color(204, 204, 255));
         jButton2.setText("Logout");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,8 +461,8 @@ public class changePass extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      userDashboard ads = new userDashboard();
-        ads.setVisible(true);
+       accountDetails acd = new accountDetails();
+        acd.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

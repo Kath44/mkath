@@ -108,12 +108,12 @@ public class createUserForm extends javax.swing.JFrame {
         ps = new javax.swing.JTextField();
         ln = new javax.swing.JTextField();
         us = new javax.swing.JComboBox<>();
-        fn = new javax.swing.JTextField();
         clear = new javax.swing.JButton();
         update = new javax.swing.JButton();
         del = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
         ref = new javax.swing.JButton();
+        fn = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -203,6 +203,7 @@ public class createUserForm extends javax.swing.JFrame {
         });
         jPanel1.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, 250, 33));
 
+        add.setBackground(new java.awt.Color(204, 204, 255));
         add.setText("ADD");
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,6 +252,52 @@ public class createUserForm extends javax.swing.JFrame {
         });
         jPanel1.add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, 250, 33));
 
+        clear.setBackground(new java.awt.Color(204, 204, 255));
+        clear.setText("CLEAR");
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
+        jPanel1.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 70, 30));
+
+        update.setBackground(new java.awt.Color(204, 204, 255));
+        update.setText("UPDATE");
+        update.setEnabled(false);
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
+        jPanel1.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 80, 30));
+
+        del.setBackground(new java.awt.Color(204, 204, 255));
+        del.setText("DELETE");
+        del.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delActionPerformed(evt);
+            }
+        });
+        jPanel1.add(del, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 80, 30));
+
+        cancel.setBackground(new java.awt.Color(204, 204, 255));
+        cancel.setText("CANCEL");
+        cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 80, 30));
+
+        ref.setBackground(new java.awt.Color(204, 204, 255));
+        ref.setText("REFRESH");
+        ref.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 100, 30));
+
         fn.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
         fn.setForeground(new java.awt.Color(153, 153, 153));
         fn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -266,47 +313,6 @@ public class createUserForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 250, 29));
-
-        clear.setText("CLEAR");
-        clear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearActionPerformed(evt);
-            }
-        });
-        jPanel1.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 70, 30));
-
-        update.setText("UPDATE");
-        update.setEnabled(false);
-        update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateActionPerformed(evt);
-            }
-        });
-        jPanel1.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 80, 30));
-
-        del.setText("DELETE");
-        del.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delActionPerformed(evt);
-            }
-        });
-        jPanel1.add(del, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 80, 30));
-
-        cancel.setText("CANCEL");
-        cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 80, 30));
-
-        ref.setText("REFRESH");
-        ref.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -416,14 +422,6 @@ public class createUserForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_usActionPerformed
 
-    private void fnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fnMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fnMouseClicked
-
-    private void fnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnActionPerformed
-       fn.setText("");
-    }//GEN-LAST:event_fnActionPerformed
-
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_clearActionPerformed
@@ -441,16 +439,30 @@ public class createUserForm extends javax.swing.JFrame {
      }else{
             
          dbConnector dbc = new dbConnector();
+         
+          try{
+             String pass = passwordHasher.hashPassword(ps.getText());
+           
          dbc.updateData("UPDATE insur SET name = '"+fn.getText()+"',lastname = '"+ln.getText()+"',"
               + "user = '"+user.getText()+"',email = '"+em.getText()+"',pass = '"+ps.getText()+"',"
                  + "contact = '"+contact.getText()+"',type = '"+ut.getSelectedItem()+"', "
                          + "status = '"+us.getSelectedItem()+"'WHERE id = '"+uid.getText()+"'" );
          
+          JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+                setVisible(false);
+         
             userForm usf = new userForm();
             usf.setVisible(true);
             this.dispose(); 
+            
+            
+             }catch(NoSuchAlgorithmException ex){
+            System.out.println(""+ex);
+     }
+    }         
+         
     }//GEN-LAST:event_updateActionPerformed
-    }
+    
     private void delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_delActionPerformed
@@ -464,6 +476,14 @@ public class createUserForm extends javax.swing.JFrame {
     private void refActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_refActionPerformed
+
+    private void fnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fnMouseClicked
+        fn.setText("");
+    }//GEN-LAST:event_fnMouseClicked
+
+    private void fnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fnActionPerformed
 
     /**
      * @param args the command line arguments

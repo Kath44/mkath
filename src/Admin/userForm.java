@@ -75,8 +75,9 @@ public class userForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         jLabel1.setText("Current User:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 100, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 100, -1));
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 255));
         jButton1.setText("Back");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -91,11 +92,12 @@ public class userForm extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-admin-100.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 100, 100));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 100, 100));
 
         jLabel2.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USER FORM ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 220, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 160, 20));
 
         usersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,19 +109,21 @@ public class userForm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(usersTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 530, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 530, 430));
 
-        user.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        user.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        user.setForeground(new java.awt.Color(255, 255, 255));
+        user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         user.setText("USER");
-        jPanel1.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+        jPanel1.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 160, -1));
 
         aid.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         aid.setText("ID");
-        jPanel1.add(aid, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
+        jPanel1.add(aid, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 180, 10));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 200, 10));
 
         edit.setBackground(new java.awt.Color(204, 204, 255));
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -140,7 +144,7 @@ public class userForm extends javax.swing.JFrame {
         edit.add(jLabel5);
         jLabel5.setBounds(82, 11, 42, 24);
 
-        jPanel1.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 200, 40));
+        jPanel1.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 200, 40));
 
         add.setBackground(new java.awt.Color(204, 204, 255));
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,17 +165,17 @@ public class userForm extends javax.swing.JFrame {
         add.add(jLabel6);
         jLabel6.setBounds(82, 11, 38, 24);
 
-        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 200, 40));
+        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 200, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
         );
 
         pack();

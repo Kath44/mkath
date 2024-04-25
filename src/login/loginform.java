@@ -100,11 +100,13 @@ public class loginform extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("INSURANCE TRACKER");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, 30));
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 255));
         jLabel2.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SYSTEM");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
 
@@ -134,6 +136,7 @@ public class loginform extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 255));
         jButton1.setText("Back");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -145,8 +148,9 @@ public class loginform extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, -1));
 
+        jButton2.setBackground(new java.awt.Color(204, 204, 255));
         jButton2.setText("LOGIN");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +163,7 @@ public class loginform extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 180, 2));
 
+        cbox.setBackground(new java.awt.Color(255, 255, 255));
         cbox.setText("Show Password");
         cbox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -172,7 +177,8 @@ public class loginform extends javax.swing.JFrame {
         });
         jPanel1.add(cbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 120, 30));
 
-        jButton3.setText("Exit");
+        jButton3.setBackground(new java.awt.Color(204, 204, 255));
+        jButton3.setText("EXIT");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
