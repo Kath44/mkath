@@ -87,7 +87,7 @@ public class loginform extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         cbox = new javax.swing.JCheckBox();
         jButton3 = new javax.swing.JButton();
-        pass = new javax.swing.JPasswordField();
+        ps = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -115,6 +115,11 @@ public class loginform extends javax.swing.JFrame {
         user.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userMouseClicked(evt);
+            }
+        });
+        user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userActionPerformed(evt);
             }
         });
         jPanel1.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 250, 29));
@@ -175,9 +180,21 @@ public class loginform extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 60, -1));
 
-        pass.setForeground(new java.awt.Color(204, 204, 204));
-        pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 250, 30));
+        ps.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
+        ps.setForeground(new java.awt.Color(204, 204, 204));
+        ps.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ps.setText("PASSWORD");
+        ps.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                psMouseClicked(evt);
+            }
+        });
+        ps.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 250, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,7 +213,7 @@ public class loginform extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-   if(loginAcc(user.getText(),pass.getText())){
+   if(loginAcc(user.getText(),ps.getText())){
         if (!status.equals("Active")){
             JOptionPane.showMessageDialog(null, "In-Active Account,Contact the Admin!");
         }else{
@@ -241,9 +258,9 @@ public class loginform extends javax.swing.JFrame {
 
     private void cboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxActionPerformed
      if(cbox.isSelected()) {
-            pass.setEchoChar((char)0);
+            ps.setEchoChar((char)0);
            }else{
-            pass.setEchoChar('*');
+            ps.setEchoChar('*');
         }
     }//GEN-LAST:event_cboxActionPerformed
 
@@ -261,6 +278,18 @@ public class loginform extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_formWindowActivated
+
+    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userActionPerformed
+
+    private void psMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_psMouseClicked
+        ps.setText("");
+    }//GEN-LAST:event_psMouseClicked
+
+    private void psActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psActionPerformed
+        ps.setText("");
+    }//GEN-LAST:event_psActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,7 +338,7 @@ public class loginform extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField pass;
+    private javax.swing.JPasswordField ps;
     private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }

@@ -233,7 +233,7 @@ public class userForm extends javax.swing.JFrame {
              crf.ln.setText(""+ rs.getString("lastname"));
              crf.em.setText(""+ rs.getString("email"));
              crf.user.setText(""+ rs.getString("user"));
-             crf.pass.setText(""+ rs.getString("pass"));
+             crf.ps.setText(""+ rs.getString("pass"));
              crf.contact.setText(""+ rs.getString("contact"));
              crf.ut.setSelectedItem(""+ rs.getString("Type"));
              crf.us.setSelectedItem(""+ rs.getString("Status"));

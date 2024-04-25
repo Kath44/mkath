@@ -7,6 +7,8 @@
 package Admin;
 
 import Config.dbConnector;
+import Config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -103,9 +105,8 @@ public class createUserForm extends javax.swing.JFrame {
         contact = new javax.swing.JTextField();
         ut = new javax.swing.JComboBox<>();
         add = new javax.swing.JButton();
-        pass = new javax.swing.JTextField();
+        ps = new javax.swing.JTextField();
         ln = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         us = new javax.swing.JComboBox<>();
         fn = new javax.swing.JTextField();
         clear = new javax.swing.JButton();
@@ -210,21 +211,21 @@ public class createUserForm extends javax.swing.JFrame {
         });
         jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 70, 30));
 
-        pass.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
-        pass.setForeground(new java.awt.Color(153, 153, 153));
-        pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        pass.setText("PASSWORD");
-        pass.addMouseListener(new java.awt.event.MouseAdapter() {
+        ps.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
+        ps.setForeground(new java.awt.Color(153, 153, 153));
+        ps.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ps.setText("PASSWORD");
+        ps.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passMouseClicked(evt);
+                psMouseClicked(evt);
             }
         });
-        pass.addActionListener(new java.awt.event.ActionListener() {
+        ps.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passActionPerformed(evt);
+                psActionPerformed(evt);
             }
         });
-        jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 250, 29));
+        jPanel1.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 250, 29));
 
         ln.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
         ln.setForeground(new java.awt.Color(153, 153, 153));
@@ -241,10 +242,6 @@ public class createUserForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 250, 29));
-
-        jTextField2.setBackground(new java.awt.Color(204, 204, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 153, 153)));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 90, -1));
 
         us.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         us.addActionListener(new java.awt.event.ActionListener() {
@@ -365,19 +362,23 @@ public class createUserForm extends javax.swing.JFrame {
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
 
         if(uid.getText().isEmpty()|| ln.getText().isEmpty()|| user.getText().isEmpty()|| em.getText().isEmpty()
-            || pass.getText().isEmpty()|| contact.getText().isEmpty()){
+            || ps.getText().isEmpty()|| contact.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "All fields are required!");
-        }else if(pass.getText().length()<8){
+        }else if(ps.getText().length()<8){
             JOptionPane.showMessageDialog(null, " Password character should be 8 above!");
-            pass.setText("");
+            ps.setText("");
         }else if(duplicateCheck()){
             System.out.println("Duplicate Exist");
         }else{
             dbConnector dbc = new dbConnector();
+            
+            try{
+                 String pass = passwordHasher.hashPassword(ps.getText());
+            
 
             if(dbc.insertData("INSERT INTO insur (name, lastname, user, email, pass, contact, type, status) "
                 + "VALUES ('" + uid.getText() + "','" + ln.getText() + "','" + user.getText() + "','"
-                + em.getText() + "','" + pass.getText() + "','" + contact.getText() + "','"
+                + em.getText() + "','" + ps.getText() + "','" + contact.getText() + "','"
                 + ut.getSelectedItem() + "','"+us.getSelectedItem()+"')"))
         {
             JOptionPane.showMessageDialog(null, "Inserted Successfully!");
@@ -389,17 +390,19 @@ public class createUserForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Connection Error!");
         }
 
-        }
-
+         }catch(NoSuchAlgorithmException ex){
+            System.out.println(""+ex);
+         }
+                 }
     }//GEN-LAST:event_addActionPerformed
 
-    private void passMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passMouseClicked
-        pass.setText("");
-    }//GEN-LAST:event_passMouseClicked
+    private void psMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_psMouseClicked
+        ps.setText("");
+    }//GEN-LAST:event_psMouseClicked
 
-    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+    private void psActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passActionPerformed
+    }//GEN-LAST:event_psActionPerformed
 
     private void lnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lnMouseClicked
         ln.setText("");
@@ -418,7 +421,7 @@ public class createUserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_fnMouseClicked
 
     private void fnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnActionPerformed
-        // TODO add your handling code here:
+       fn.setText("");
     }//GEN-LAST:event_fnActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
@@ -426,19 +429,20 @@ public class createUserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_clearActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-       if(fn.getText().isEmpty()|| ln.getText().isEmpty()|| user.getText().isEmpty()|| em.getText().isEmpty()
-                || pass.getText().isEmpty()|| contact.getText().isEmpty()){
+    
+        if(fn.getText().isEmpty()|| ln.getText().isEmpty()|| user.getText().isEmpty()|| em.getText().isEmpty()
+                || ps.getText().isEmpty()|| contact.getText().isEmpty()){
           JOptionPane.showMessageDialog(null, "All fields are required!");  
-        }else if(pass.getText().length()<8){
+        }else if(ps.getText().length()<8){
           JOptionPane.showMessageDialog(null, " Password character should be 8 above!");
-          pass.setText("");
+          ps.setText("");
         }else if(updateCheck()){
         System.out.println("Duplicate Exist");
      }else{
             
          dbConnector dbc = new dbConnector();
          dbc.updateData("UPDATE insur SET name = '"+fn.getText()+"',lastname = '"+ln.getText()+"',"
-              + "user = '"+user.getText()+"',email = '"+em.getText()+"',pass = '"+pass.getText()+"',"
+              + "user = '"+user.getText()+"',email = '"+em.getText()+"',pass = '"+ps.getText()+"',"
                  + "contact = '"+contact.getText()+"',type = '"+ut.getSelectedItem()+"', "
                          + "status = '"+us.getSelectedItem()+"'WHERE id = '"+uid.getText()+"'" );
          
@@ -508,9 +512,8 @@ public class createUserForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
     public javax.swing.JTextField ln;
-    public javax.swing.JTextField pass;
+    public javax.swing.JTextField ps;
     private javax.swing.JButton ref;
     public javax.swing.JTextField uid;
     public javax.swing.JButton update;

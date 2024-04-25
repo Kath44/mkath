@@ -76,7 +76,6 @@ public class registerDashboard extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         ln = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         ps = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,12 +86,12 @@ public class registerDashboard extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("INSURANCE TRACKER");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Registration");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
 
         user.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
         user.setForeground(new java.awt.Color(153, 153, 153));
@@ -124,7 +123,7 @@ public class registerDashboard extends javax.swing.JFrame {
                 fnActionPerformed(evt);
             }
         });
-        jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 250, 29));
+        jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 250, 30));
 
         em.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
         em.setForeground(new java.awt.Color(153, 153, 153));
@@ -158,13 +157,13 @@ public class registerDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 250, 29));
 
-        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMIN", "USER" }));
+        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 typeActionPerformed(evt);
             }
         });
-        jPanel1.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 100, 33));
+        jPanel1.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 100, 33));
 
         jButton2.setText("EXIT");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +171,7 @@ public class registerDashboard extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 91, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 91, 30));
 
         jButton1.setText("REGISTER");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +179,7 @@ public class registerDashboard extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 91, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 91, 30));
 
         ln.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
         ln.setForeground(new java.awt.Color(153, 153, 153));
@@ -198,13 +197,10 @@ public class registerDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 250, 29));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 153, 153)));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 130, -1));
-
         ps.setFont(new java.awt.Font("Yu Gothic", 1, 11)); // NOI18N
         ps.setForeground(new java.awt.Color(204, 204, 204));
         ps.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ps.setText("PASSWORD");
         ps.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 psMouseClicked(evt);
@@ -221,9 +217,7 @@ public class registerDashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +315,7 @@ public class registerDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_lnActionPerformed
 
     private void psActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psActionPerformed
-        // TODO add your handling code here:
+        ps.setText("");
     }//GEN-LAST:event_psActionPerformed
 
     private void psMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_psMouseClicked
@@ -372,7 +366,6 @@ public class registerDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField ln;
     private javax.swing.JPasswordField ps;
     private javax.swing.JComboBox<String> type;
